@@ -28,9 +28,11 @@ def home():
     logging.info("Home endpoint accessed")
     return jsonify(message="Welcome to the demo app!")
 
+
 @app.route('/simulate')
 def simulate():
     log_type = request.args.get('type')
+    
     if not log_type:
         log_type = random.choice(["INFO", "WARNING", "ERROR"])
 
@@ -44,6 +46,7 @@ def simulate():
         return jsonify(message="Invalid log type! Please use INFO, WARNING, or ERROR."), 400
 
     return jsonify(message=f"{log_type} log generated!")
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=PORT)

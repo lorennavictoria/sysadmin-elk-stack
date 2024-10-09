@@ -19,7 +19,7 @@ def simulate_errors(url):
         
 
 while True:
-    sleep_time = random.randint(1, 7)
+    sleep_time = random.randint(1, 5)
     request_num = random.randint(1, 30)
     
     print(f'Sending {request_num} requests to server. Sleeping {sleep_time} seconds')

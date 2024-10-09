@@ -3,8 +3,6 @@ import random
 import os
 from flask import Flask, jsonify, request
 from dotenv import load_dotenv
-from pytz import timezone
-import time
 
 load_dotenv()
 
@@ -12,13 +10,6 @@ app = Flask(__name__)
 
 LOG_PATH = os.getenv('LOG_PATH', 'app_logs.log')
 PORT = int(os.getenv('PORT', 5000))
-BRAZIL_TZ = timezone('America/Sao_Paulo')
-
-def set_local_timezone():
-    os.environ['TZ'] = 'America/Sao_Paulo'
-    time.tzset()
-
-set_local_timezone()
 
 logging.basicConfig(filename=LOG_PATH, level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
